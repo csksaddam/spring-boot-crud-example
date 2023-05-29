@@ -1,50 +1,50 @@
-package com.javatechie.crud.example.controller;
+package com.mulani.crud.example.controller;
 
-import com.javatechie.crud.example.entity.Product;
-import com.javatechie.crud.example.service.ProductService;
+import com.mulani.crud.example.entity.Product;
+import com.mulani.crud.example.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class ProductController {
+public class StudentController {
 
     @Autowired
-    private ProductService service;
+    private StudentService service;
 
-    @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product product) {
-        return service.saveProduct(product);
+    @PostMapping("/addStudent")
+    public Student addStudent(@RequestBody Student student) {
+        return service.saveStudent(student);
     }
 
-    @PostMapping("/addProducts")
-    public List<Product> addProducts(@RequestBody List<Product> products) {
-        return service.saveProducts(products);
+    @PostMapping("/addStudents")
+    public List<Student> addStudents(@RequestBody List<Student> students) {
+        return service.saveStudents(students);
     }
 
-    @GetMapping("/products")
-    public List<Product> findAllProducts() {
-        return service.getProducts();
+    @GetMapping("/students")
+    public List<Student> findAllStudents() {
+        return service.getStudents();
     }
 
-    @GetMapping("/productById/{id}")
-    public Product findProductById(@PathVariable int id) {
-        return service.getProductById(id);
+    @GetMapping("/student/{id}")
+    public Student findStudentById(@PathVariable int id) {
+        return service.getStudentById(id);
     }
 
-    @GetMapping("/product/{name}")
-    public Product findProductByName(@PathVariable String name) {
-        return service.getProductByName(name);
+    @GetMapping("/student/{name}")
+    public Student findStudentByName(@PathVariable String name) {
+        return service.getStudentByName(name);
     }
 
     @PutMapping("/update")
-    public Product updateProduct(@RequestBody Product product) {
-        return service.updateProduct(product);
+    public Student updateStudent(@RequestBody Student student) {
+        return service.updateStudent(student);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable int id) {
-        return service.deleteProduct(id);
+    public String deleteStudent(@PathVariable int id) {
+        return service.deleteStudent(id);
     }
 }
